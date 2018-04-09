@@ -1,0 +1,122 @@
+/*Yleiset säännöt*/
+/**{
+    
+    box-sizing:border-box;
+}*/
+
+body{
+    margin:auto;
+}
+
+h1{
+    margin:0;
+    padding:0;
+}
+
+img{
+    height:100px;
+}
+
+span{
+    font-size:50px;
+}
+
+#content{
+    width:100%;
+    box-sizing:border-box;
+}
+
+/*HEADER OSIO*/
+#header{
+    /*width:100%;*/
+    background-color:aqua;
+    padding:10px;
+}
+/*Linkkien väri*/
+#header a{
+    color:#000;
+}
+
+/*HAKU OSIO*/
+#haku{
+    width:100%;
+    background-color:lime;
+    padding:10px;
+}
+/*Select valikon tekstin koko*/
+#haku select{
+    font-size:30px;
+    margin-right:2vw;
+}
+
+#haku button{
+    font-size:30px;
+}
+
+/*RUOKALISTA OSIO*/
+#ruokalista{
+    padding:10px;
+}
+
+/*OSTOSKORI OSIO*/
+#ostoskori{
+    padding:10px;
+}
+
+#ostoskori h1{
+    margin-bottom:10px;
+    text-align:center;
+}
+
+#ostoskori button{
+    font-size:30px;
+    margin-top:10px;
+}
+
+/*LOMAKE OSIO*/
+#lomake{
+    padding:10px;
+}
+
+#lomake label{
+    font-size:20px;
+}
+
+#lomake input{
+    font-size:20px;
+}
+
+#lomake h1{
+    text-align:center;
+}
+
+#lomake button{
+    font-size:30px;
+}
+
+/*Kaikkien sivujen paikka*/
+#etusivu, #ostoskori, #lomake{
+    margin-top:120px;
+}
+
+#paivat{
+    background-color:aqua;
+}
+
+#ruokalista, #ostoskori, #lomake{
+    background-color:lime;
+}
+
+/*Yleinen class jolla piilotetaan halutut elementit*/
+.piilo{
+    display:none;
+}
+
+/*Yleiset classit jolla kellutetaan*/
+.oikea{
+    float:right;
+}
+
+.vasen{
+    float:left;
+}
