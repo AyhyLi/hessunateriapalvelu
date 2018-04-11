@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    
+    $.ajax({url:"../data/data.json",
+                success:function(result){
+                    tulostatuotteet();
+                }
+            });
+
 
     //Avataan otsikon allaolevan tietolaatikon
     $("h1").click(function(){
