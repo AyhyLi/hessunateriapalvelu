@@ -1,14 +1,25 @@
 $(document).ready(function(){
-    
+    //Haetaan ateriat json tiedostosta
     $.ajax({url:"../data/data.json",
                 success:function(result){
-                    tulostatuotteet();
+                    tulostatuotteet(result);
                 }
             });
+    
+        //Tulostetaan haetut areriat sivulle
+    function tulostatuotteet(result){
+        var ateriat="hello";
+        
+        for(var i=0; i < result.ruokalista.length; i++){
+                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + result.ruokalista[i].hinta + "</div>";
+            }
+        
+        $("#ruokalista").html(ateriat);
+    }
 
 
     //Avataan otsikon allaolevan tietolaatikon
-    $("h1").click(function(){
+    $(".ateria").click(function(){
         $(this).next(".tiedot").toggle();
     });
     
@@ -36,17 +47,6 @@ $(document).ready(function(){
         $("#ostoskori").addClass("piilo");
         $("#etusivu").addClass("piilo");
     });
-    
-    function tulostatuotteet(result){
-        var ateriat;
-        
-        console.log(result.ruokalista[1].nimi);
-        
-        /*for(var i=0; i < result.length; i++){
-                ateriat += "<h1>" + result[2].nimi + "</h1><div class='tiedot piilo'>" + result[2].ainekset + result[2].hinta + "</div>";
-            }
-        
-        $("#ruokalista").html(ateriat);*/
-    }
+
     
 });
