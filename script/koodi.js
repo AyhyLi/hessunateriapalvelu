@@ -124,6 +124,43 @@ $(document).ready(function(){
         $("#ostoskori").addClass("piilo");
         $("#etusivu").addClass("piilo");
     });
-
+    
+    //Lomakkeen tarkistus
+    $("#vahvista").click(function(){
+        var puh=$("#puh").val();
+        var poNu=$("#posti").val();
+        
+        var poNuO="";
+        var puhO="";
+        
+        for(var i=0; i < poNu.length;i++){
+            if(poNu.length -1 < 4 || poNu.length -1 > 4){
+            alert("ei");
+            }
+            
+            else{
+                alert("kyll!");
+                poNuO="ok";
+                
+            }
+        }
+  
+        for(var i=0; i < puh.length;i++){
+            if(puh.length -1 == 5 || puh.length -1 == 9){
+                alert("kyll!");
+                puhO="ok";
+            }
+            
+            else{
+                alert("ei");
+            }
+        }
+        
+        if(puhO == "ok" && poNuO == "ok"){
+           $("#puh").val("");
+            $("#posti").val(""); 
+        }
+        
+    });
     
 });
