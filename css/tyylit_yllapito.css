@@ -43,3 +43,19 @@
 .ml10{
     margin-left:5px;
 }
+
+.oikea{
+    float:right;
+}
+
+.napit{
+    margin:10px 0;
+}
+
+.napit button{
+    margin-left:10px;
+}
+
+.tiedot{
+    margin-bottom:45px
+}
