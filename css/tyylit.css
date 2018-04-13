@@ -57,9 +57,40 @@ span{
     padding:10px;
 }
 
+#ruokalista h1{
+    font-size:7vw;
+    width:100%;
+    border-bottom:1px outset #000;
+    padding-bottom:10px;
+}
+
+.glyphicon-plus-sign{
+    font-size:7vw;
+    margin:10px 15px 0 0;
+}
+
 /*OSTOSKORI OSIO*/
 #ostoskori{
     padding:10px;
+}
+
+#ostoskori table{
+    font-size:4.5vw;
+    margin-bottom:10px;
+}
+
+.table, td, tr, th{
+    border:none !important;
+    border-bottom:1px solid #000 !important;
+}
+
+#ostoskori th{
+    text-transform:uppercase;
+    text-align:center;
+}
+
+#ostoskori td{
+    font-weight:bold;
 }
 
 #ostoskori h1{

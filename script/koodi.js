@@ -14,7 +14,7 @@ $(document).ready(function(){
     function tulostatuotteet(result){
         
         for(i=0; i < result.ruokalista.length; i++){
-                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<h1 class='ateria'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
             }
         
         $("#ruokalista").html(ateriat);
