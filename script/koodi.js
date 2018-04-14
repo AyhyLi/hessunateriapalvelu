@@ -14,7 +14,8 @@ $(document).ready(function(){
     function tulostatuotteet(result){
         
         for(i=0; i < result.ruokalista.length; i++){
-                ateriat += "<h1 class='ateria'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<div class='ateriat'><h1 class='ateria mob'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
             }
         
         $("#ruokalista").html(ateriat);
@@ -40,19 +41,23 @@ $(document).ready(function(){
             //console.log(result.ruokalista[i].ruokavalio[0]);
             
             if(valio=="l" && result.ruokalista[i].ruokavalio == "Laktoositon"||valio=="l" && result.ruokalista[i].ruokavalio[0] == "Laktoositon"||valio=="l" && result.ruokalista[i].ruokavalio[1] == "Laktoositon"){
-                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<div class='ateriat'><h1 class='ateria mob'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
                 }
             
             else if(valio=="g" && result.ruokalista[i].ruokavalio[1]== "Gluteeniton"||valio=="g" && result.ruokalista[i].ruokavalio[0]== "Gluteeniton"||valio=="g" && result.ruokalista[i].ruokavalio== "Gluteeniton"){
-                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<div class='ateriat'><h1 class='ateria'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><div class='desk'><p>"
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
                 }
             
             else if(valio=="vl" && result.ruokalista[i].ruokavalio== "Vähälaktoosinen"||valio=="vl" && result.ruokalista[i].ruokavalio[0]== "Vähälaktoosinen"||valio=="vl" && result.ruokalista[i].ruokavalio[1]== "Vähälaktoosinen"){
-                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<div class='ateriat'><h1 class='ateria'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><div class='desk'><p>"
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
                 }
             
             else if(valio=="k" && result.ruokalista[i].ruokalaji== "kasvisruoka"){
-                ateriat += "<h1 class='ateria'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></div>";
+                ateriat += "<div class='ateriat'><h1 class='ateria'><span class='glyphicon glyphicon-plus-sign'></span>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><div class='desk'><p>"
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
                 }
         
         $("#ruokalista").html(ateriat);
@@ -96,7 +101,7 @@ $(document).ready(function(){
 */
     
     //Avataan otsikon allaolevan tietolaatikon
-    $("#ruokalista").on("click", "h1", function(e){
+    $("#ruokalista").on("click", ".ateria", function(e){
         $(this).next(".tiedot").toggle();
     });
     
