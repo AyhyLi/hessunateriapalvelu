@@ -228,57 +228,8 @@ button{
     
 }
 
-@media only screen and (orientation:landscape) and (max-width:1050px){
-    #paivat li{
-        text-align:center;
-        width:100px;
-        font-size:20px;
-    }
-    /*Sivujen leveys*/
-    #ostoskori, #lomake, #ruokalista{
-        width:65%;
-        margin:auto;
-    }
-    /*Kaikkien sivujen paikka headeriin katsottuna*/
-    #etusivu{
-        margin-top:177px;
-    }
-    
-    #ostoskori, #lomake{
-        margin-top:120px;
-    }
-    
-    /*HAKU*/
-    #haku{
-        padding:50px 160px;
-        text-align:right;
-    }
-    
-    #paivat ul{
-        margin-left:12vw;
-    }
-    
-    /*RUOKALISTA*/    
-    #ruokalista h1{
-        font-size:4vw;
-    }
-    
-    #ruokalista span{
-        font-size:4vw;
-    }
-    /*OSTOSKORI*/
-    #ostoskori th, #ostoskori td{
-        font-size:3.5vw;
-    }
-    /*LOMAKE*/
-    #lomake{
-        padding-top:30px;
-    }
-    
-}
-
 /*DESKTOP näkymä*/
-@media only screen and (min-width:1051px){
+@media only screen and (min-width:961px){
     /*Piilotetaan mob classin jossa on elementteijä jotka halutaan vain näyttää mobiilissä*/
     .mob{
         display:none;
@@ -346,7 +297,7 @@ button{
     
     .glyphicon-plus-sign{
         font-size:2vw;
-        margin:0 0 0 310px;
+        margin:0 0 0 20vw;
     }
     
     .glyphicon-plus-sign:hover{
