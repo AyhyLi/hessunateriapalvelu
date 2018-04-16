@@ -26,7 +26,7 @@ $(document).ready(function(){
     $("#hae").click(function(result){
         valio=$("#rValiot").val();
         
-        $.ajax({url:"../data/data.json",
+        $.ajax({url:lista,
                 success:function(result){
                     tulostavaliot(result);
                 }
