@@ -1,10 +1,11 @@
+var lista=/api/;
 var ateriat="";
 var valio;
 var i;
 
 $(document).ready(function(){
     //Haetaan ateriat json tiedostosta
-    $.ajax({url:"../data/data.json",
+    $.ajax({url:lista,
                 success:function(result){
                     tulostatuotteet(result);
                 }
