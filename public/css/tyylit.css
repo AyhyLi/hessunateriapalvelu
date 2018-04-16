@@ -1,7 +1,5 @@
 body{
     margin:auto;
-    background-image:url("../images/ateria.jpg");
-    background-size:cover;
 }
 
 h1{
@@ -24,11 +22,10 @@ button{
 #content{
     width:100%;
     box-sizing:border-box;
+    background-image:url("../images/ateria.jpg");
+    background-size:cover;
     min-height:1000px;
-    /*background-image:url("../images/ateria.jpg");
-    background-size:cover;*/
 }
-
 /*HEADER OSIO*/
 #header{
     width:100%;
