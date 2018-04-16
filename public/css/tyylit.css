@@ -22,6 +22,8 @@ button{
 #content{
     width:100%;
     box-sizing:border-box;
+    min-height:100px;
+    overflow:auto;
     background-image:url("../images/ateria.jpg");
     background-size:cover;
 }
@@ -51,7 +53,7 @@ button{
     padding:0;
     text-align:center;
     width:14.28571428571429%;
-    font-size:5vw;
+    font-size:20px;
 }
 
 .nav-pills .active a{
@@ -134,6 +136,7 @@ button{
 #ostoskori button{
     font-size:30px;
     margin-top:10px;
+    margin-bottom:10px;
 }
 
 /*LOMAKE OSIO*/
@@ -156,8 +159,12 @@ button{
 }
 
 /*Kaikkien sivujen paikka headeriin katsottuna*/
-#etusivu, #ostoskori, #lomake{
+#etusivu{
     margin-top:176px;
+}
+
+#ostoskori, #lomake{
+    margin-top:120px;
 }
 
 #ostoskori, #lomake{
@@ -176,6 +183,24 @@ button{
 
 .vasen{
     float:left;
+}
+
+@media only screen and (max-width:760px) and (orientation:landscape){
+    img{
+        height:70px;
+    }
+    
+    #etusivu{
+       margin-top:148px; 
+    }
+    
+    #ostoskori, #lomake{
+         margin-top:90px;
+    }
+    
+    #ruokalista h1{
+        font-size:4vw;
+    }
 }
 
 /*TABLET näkymä*/
@@ -206,7 +231,7 @@ button{
     }
     
     #paivat ul{
-        margin-left:12vw;
+        margin-left:12%;
     }
     
     /*RUOKALISTA*/    
