@@ -8,7 +8,7 @@ h1{
 }
 
 img{
-    height:100px;
+    height:60px;
 }
 
 span{
@@ -68,12 +68,12 @@ button{
 }
 /*Select valikon tekstin koko*/
 #haku select{
-    font-size:30px;
+    font-size:7vw;
     margin-right:2vw;
 }
 
 #haku button{
-    font-size:30px;
+    font-size:7vw;
 }
 
 /*RUOKALISTA OSIO*/
@@ -133,6 +133,14 @@ button{
     text-align:center;
 }
 
+.check{
+    float:left;
+    margin:0 !important;
+    margin-right:10px !important;
+    padding:0 !important;
+    width:30px !important;
+}
+
 #ostoskori button{
     font-size:30px;
     margin-top:10px;
@@ -160,11 +168,11 @@ button{
 
 /*Kaikkien sivujen paikka headeriin katsottuna*/
 #etusivu{
-    margin-top:176px;
+    margin-top:138px;
 }
 
 #ostoskori, #lomake{
-    margin-top:120px;
+    margin-top:80px;
 }
 
 #ostoskori, #lomake{
@@ -198,18 +206,29 @@ button{
          margin-top:75px;
     }
     
-    #ruokalista h1{
-        font-size:4vw;
+    .check{
+        margin-top:5px !important;
+    }
+    
+    #ruokalista h1, .glyphicon-plus-sign, #haku select, #haku button{
+        font-size:5vw;
     }
 }
 
 /*TABLET näkymä*/
-@media only screen and (min-width:760px) and (max-width:960px){
-    #paivat li{
-        text-align:center;
-        width:100px;
-        font-size:20px;
+@media only screen and (min-width:761px) and (max-width:960px){
+
+    /*HAKU*/
+    #haku{
+        padding:50px 160px;
+        text-align:right;
     }
+    
+    /*RUOKALISTA*/    
+    #ruokalista h1, .glyphicon-plus-sign, #haku select, #haku button, #ruokalista span{
+        font-size:4vw;
+    }
+    
     /*Sivujen leveys*/
     #ostoskori, #lomake, #ruokalista{
         width:80%;
@@ -217,35 +236,18 @@ button{
     }
     /*Kaikkien sivujen paikka headeriin katsottuna*/
     #etusivu{
-        margin-top:177px;
+        margin-top:135px;
     }
     
     #ostoskori, #lomake{
-        margin-top:120px;
+        margin-top:80px;
     }
     
-    /*HAKU*/
-    #haku{
-        padding:50px 160px;
-        text-align:right;
-    }
-    
-    #paivat ul{
-        margin-left:12%;
-    }
-    
-    /*RUOKALISTA*/    
-    #ruokalista h1{
-        font-size:4vw;
-    }
-    
-    #ruokalista span{
-        font-size:4vw;
-    }
     /*OSTOSKORI*/
     #ostoskori th, #ostoskori td{
         font-size:3.5vw;
     }
+    
     /*LOMAKE*/
     #lomake{
         padding-top:30px;
@@ -264,19 +266,24 @@ button{
         display:block;
     }
     
+    #content{
+        min-height:750px;
+    }
+    
     #header span{
         margin:0 150px;
+        margin-bottom:10px;
     }
     
-    #paivat ul{
-        margin-left:25%;
+    #header h1{
+        margin-left:10%;
     }
     
-    #paivat li{
-        text-align:center;
-        width:100px;
-        font-size:20px;
+    #paivat{
+        width:80%;
+        margin:auto;
     }
+    
     /*Kaikkien sivujen koko*/
     #ostoskori, #lomake, #ruokalista{
         width:80%;
@@ -284,7 +291,7 @@ button{
     }
     /*Kaikkien sivujen paikka headeriin katsottuna*/
     #etusivu{
-        margin-top:133px;
+        margin-top:123px;
     }
     
     #ostoskori, #lomake{
@@ -295,6 +302,10 @@ button{
     #haku{
         padding:50px 160px;
         text-align:right;
+    }
+    
+    #haku select, #haku button{
+        font-size:30px;
     }
     
     /*RUOKALISTA*/
@@ -335,8 +346,13 @@ button{
     
     /*OSTOSKORI*/
     #ostoskori th, #ostoskori td{
-        font-size:1.7vw;
+        font-size:25px;
     }
+    
+    .check{
+        margin-top:3px !important;
+    }
+    
     /*LOMAKE*/
     #lomake{
         padding-top:30px;
