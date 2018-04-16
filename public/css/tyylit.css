@@ -187,15 +187,15 @@ button{
 
 @media only screen and (max-width:760px) and (orientation:landscape){
     img{
-        height:70px;
+        height:50px;
     }
     
     #etusivu{
-       margin-top:148px; 
+       margin-top:133px; 
     }
     
     #ostoskori, #lomake{
-         margin-top:90px;
+         margin-top:75px;
     }
     
     #ruokalista h1{
