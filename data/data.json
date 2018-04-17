@@ -5,7 +5,7 @@
                         "id":"0",
                         "nimi": "Rosepippuri porsaanleike",
                         "ainekset": "Porsaanleike, rosepippurikastiketta, viipaleperunoita ja kasviksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -14,7 +14,7 @@
                         "id":"1",
                         "nimi": "Juuresporsasta",
                         "ainekset": "Porsaanlihaa, sinappi-kermakastiketta, perunamuusia ja juureksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -23,7 +23,7 @@
                         "id":"2",
                         "nimi": "Nyhtöpossua",
                         "ainekset": "Porsaanlihaa, maustekastiketta, persiljamuusi ja kasviksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L  "
@@ -32,7 +32,7 @@
                         "id":"3",
                         "nimi": "Sinihome Porsaanleike",
                         "ainekset": "Porsaanleike, sinihomejuustokastiketta, lohkoperunat ja kasviksia",
-                        "hinta": "16.00",
+                        "hinta": 16.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -41,7 +41,7 @@
                         "id":"4",
                         "nimi": "Chili con carne",
                         "ainekset": "Naudanlihaa, chilikastiketta, riisiä ja kasviksia",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -50,7 +50,7 @@
                         "id":"5",
                         "nimi": "Naudanlihapata",
                         "ainekset": "Naudanlihaa, perunamuusi ja parsakaalia",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -59,7 +59,7 @@
                         "id":"6",
                         "nimi": "Pippurihärkää",
                         "ainekset": "Naudanlihaa, pippurikastiketta ja vihannesriisiä",
-                        "hinta": "20.00",
+                        "hinta": 20.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L  "
@@ -68,7 +68,7 @@
                         "id":"7",
                         "nimi": "Palapaisti",
                         "ainekset": "Naudanlihaa, sipulikastiketta, pannuperunaa ja papuja",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -77,7 +77,7 @@
                         "id":"8",
                         "nimi": "Kermaista riistakastiketta",
                         "ainekset": "Kermaista riistalihakastiketta, perunamuusia, ja puolukkaa",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "liharuoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -86,7 +86,7 @@
                         "id":"9",
                         "nimi": "Höyrytetty lohi",
                         "ainekset": "Lohta, ruohosipulikastiketta, perunaröstiä ja paahdettua porkkanaa",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -95,7 +95,7 @@
                         "id":"10",
                         "nimi": "Silakkapihvit",
                         "ainekset": "Silakkapihvejä, kananmunakastiketta, perunamuusia ja vihanneksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -104,7 +104,7 @@
                         "id":"11",
                         "nimi": "Lohi-kasvismureke",
                         "ainekset": "Lohi-kasvismureke, tillimuhennettua perunaa ja kesäkurpitsaa",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -113,7 +113,7 @@
                         "id":"12",
                         "nimi": "Janssonin kiusaus",
                         "ainekset": "Janssonin kiusaus",
-                        "hinta": "16.00",
+                        "hinta": 16.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -122,7 +122,7 @@
                         "id":"13",
                         "nimi": "Siikapihvi",
                         "ainekset": "Siikapihvi, katkarapukastiketta, perunakroketteja ja vihanneksia",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": "Vähälaktoosinen",
                         "lyhenne":"VL"
@@ -131,7 +131,7 @@
                         "id":"14",
                         "nimi": "Haudutettu sei",
                         "ainekset": "Seifilettä, kananmuna-tillikastiketta, perunaa ja parsakaalia",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -140,7 +140,7 @@
                         "id":"15",
                         "nimi": "Haukipyörykät",
                         "ainekset": "Haukipyöryköitä, pariisinperunoita, tillikastiketta, sipulia ja vihanneksia",
-                        "hinta": "20.00",
+                        "hinta": 20.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": ["Vähälaktoosinen", "Gluteeniton"],
                         "lyhenne":"VL, G"
@@ -149,7 +149,7 @@
                         "id":"16",
                         "nimi": "Savulohipasta",
                         "ainekset": "Pennepastaa, savulohikastiketta ja porkkanaa",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kalaruoka",
                         "ruokavalio": "Vähälaktoosinen",
                         "lyhenne":"VL"
@@ -159,7 +159,7 @@
                         "id":"17",
                         "nimi": "Hedelmäistä broilercurrya",
                         "ainekset": "Paahdettua broileria, hedelmäistä currykastiketta ja riisiä",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -168,7 +168,7 @@
                         "id":"18",
                         "nimi": "Puutarhurin broileripihvi",
                         "ainekset": "Broilerpihvi, perunamuusia ja muhennettua porkkanaa",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -177,7 +177,7 @@
                         "id":"19",
                         "nimi": "Broileripyörykät curryssa",
                         "ainekset": "Broilerilihapullia, currykastiketta, riisiä ja porkkanaa",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -186,7 +186,7 @@
                         "id":"20",
                         "nimi": "Kukkoa viinissä",
                         "ainekset": "Broileria, punaviinikastiketta, meksikolaisittain maustettua perunaa ja herneitä",
-                        "hinta": "16.00",
+                        "hinta": 16.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -195,7 +195,7 @@
                         "id":"21",
                         "nimi": "Broileria rakuunakastikkeessa",
                         "ainekset": "Paahdettua broileria, rakuunakastiketta, viipaleperunoita ja kasviksia",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -204,7 +204,7 @@
                         "id":"22",
                         "nimi": "Pippuri-tuorejuusto broileri",
                         "ainekset": "Broileria, pippuri-tuorejuustokastiketta, lohkoperunaa ja paprikaa",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kanaruoka",
                         "ruokavalio": ["Vähälaktoosinen", "Gluteeniton"],
                         "lyhenne":"VL, G"
@@ -213,7 +213,7 @@
                         "id":"23",
                         "nimi": "Porkkanapyöryköitä rakuunakastikkeella",
                         "ainekset": "Porkkanapyörykät, rakuunakastiketta, viipaleperunoita ja kasviksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kasvisruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -223,7 +223,7 @@
                         "id":"24",
                         "nimi": "Kasviskiusaus",
                         "ainekset": "Perunaa, porkkanaa, palsternakkaa, punajuurta, parsakaalia, soijakermaa ja tomattisosetta",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kasvisruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -232,7 +232,7 @@
                         "id":"25",
                         "nimi": "Kasvis-kvinoapihvejä rosepippurikastikkeella",
                         "ainekset": "Kasvis-kvinoapihvejä, rosepippurikastiketta viipaleperunoita ja kasviksia",
-                        "hinta": "15.00",
+                        "hinta": 15.00,
                         "ruokalaji": "kasvisruoka",
                         "ruokavalio": "Laktoositon",
                         "lyhenne":"L"
@@ -241,7 +241,7 @@
                         "id":"26",
                         "nimi": "Kurpitsa-porkkanasosekeitto",
                         "ainekset": "Kurpitsaa, porkanaa, ruokakermaa ja suola",
-                        "hinta": "16.00",
+                        "hinta": 16.00,
                         "ruokalaji": "kasvisruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
@@ -250,7 +250,7 @@
                         "id":"27",
                         "nimi": "Purjo-perunasosekeitto",
                         "ainekset": "Purjo, peruna, ruokakerma, voita ja suolaa",
-                        "hinta": "17.00",
+                        "hinta": 17.00,
                         "ruokalaji": "kasvisruoka",
                         "ruokavalio": ["Laktoositon","Gluteeniton"],
                         "lyhenne":"L, G"
