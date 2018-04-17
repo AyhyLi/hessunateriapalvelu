@@ -20,18 +20,18 @@
                 <a class="eIcon"><div class="col-md-1 col-sm-2 col-xs-2"><span class="glyphicon glyphicon-home"></span></div></a>
                 <div class="col-xs-3"></div>
                 <a class="eIcon"><div class="col-md-6 col-sm-4 col-xs-4"><h1 class="desk">Hessun Ateriapalvelut</h1><img src="../images/ha_logo.png" alt="logo" class="mob"></div></a>
-                <a id="oIcon"><div class="col-md-2 col-sm-3 col-xs-3"><span class="glyphicon glyphicon-shopping-cart oikea"></span></div></a>
+                <a id="oIcon"><div class="col-md-2 col-sm-3 col-xs-3"><div class="oikea" id="pallero"></div><span class="glyphicon glyphicon-shopping-cart oikea"></span></div></a>
             </div>
 
             <div id="paivat">
                 <ul class="nav nav-pills">
-                    <li class="pa active"><a href="#">MA</a></li>
-                    <li class="pa"><a href="#">TI</a></li>
-                    <li class="pa"><a href="#">KE</a></li>
-                    <li class="pa"><a href="#">TO</a></li>
-                    <li class="pa"><a href="#">PE</a></li>
-                    <li class="pa"><a href="#">LA</a></li>
-                    <li class="pa"><a href="#">SU</a></li>
+                    <li id="m" class="pa"><a id="ma">MA</a></li>
+                    <li id="t" class="pa"><a id="ti">TI</a></li>
+                    <li id="k" class="pa"><a id="ke">KE</a></li>
+                    <li id="o" class="pa"><a id="to">TO</a></li>
+                    <li id="p" class="pa"><a id="pe">PE</a></li>
+                    <li id="l" class="pa"><a id="la">LA</a></li>
+                    <li id="s" class="pa"><a id="su">SU</a></li>
                 </ul>
             </div>
         </nav>
@@ -54,7 +54,7 @@
         
         <div id="ostoskori" class="piilo table-responsive">
             <h1>Ostoskori</h1>
-            <table class="table table-bordered">
+            <table id="ostosk" class="table table-bordered">
                 <tr>
                     <th>Päivä</th>
                     <th>Ateria</th>
@@ -62,42 +62,38 @@
                 </tr>
                 <tr>
                     <td>MA</td>
-                    <td>
-                        
-                        <input class="form-control input-sm check" type="checkbox">
-                        Ei ateriaa tälle päivälle
-                    </td>
-                    <td>0,00€</td>
+                    <td id="mA"><input class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
+                    <td id="mH">0.00€</td>
                 </tr>
                 <tr>
                     <td>TI</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="tI"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
                 <tr>
                     <td>KE</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="kE"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
                 <tr>
                     <td>TO</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="tO"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
                 <tr>
                     <td>PE</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="pE"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
                 <tr>
                     <td>LA</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="lA"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
                 <tr>
                     <td>SU</td>
-                    <td><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
-                    <td>0,00€</td>
+                    <td id="sU"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td>0.00€</td>
                 </tr>
             </table>
             
@@ -134,7 +130,7 @@
                 </div>
             </form>
             <h1>Tilauksen hinta yhteensä: 0,00€</h1>
-            <button id="vahvista" type="button">Vahvista tilaus</button> <!--data-toggle="modal" data-target="#myModal"-->
+            <button id="vahvista" data-toggle="modal" data-target="#myModal" type="button">Vahvista tilaus</button>
         </div>
     </div>
     

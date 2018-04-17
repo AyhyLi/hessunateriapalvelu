@@ -1,5 +1,7 @@
 body{
     margin:auto;
+    background-image:url("../images/ateria.jpg");
+    background-size:cover;
 }
 
 h1{
@@ -22,10 +24,7 @@ button{
 #content{
     width:100%;
     box-sizing:border-box;
-    min-height:100px;
-    overflow:auto;
-    background-image:url("../images/ateria.jpg");
-    background-size:cover;
+
 }
 /*HEADER OSIO*/
 #header{
@@ -40,6 +39,16 @@ button{
 
 #header span{
     color:#EAB100;
+}
+
+#pallero{
+    width:20px;
+    height:20px;
+    background-color:#730022;
+    border-radius:50px;
+    color:#FFF;
+    text-align:center;
+    font-weight:bold;
 }
 
 #paivat{
@@ -58,6 +67,11 @@ button{
 
 .nav-pills .active a{
     background-color:#327300 !important;
+}
+
+.nav-pills .disabled a{
+    background-color:rgba(255,255,255,0.5) !important;
+    color:rgba(0,0,0,0.2) !important;
 }
 
 /*HAKU OSIO*/
@@ -87,15 +101,12 @@ button{
     width:100%;
     border-bottom:1px outset #000;
     padding-bottom:10px;
+    margin-bottom:10px;
 }
 /*Plussa iconin koko ja margin*/
 .glyphicon-plus-sign{
     font-size:7vw;
-    margin:10px 15px 0 0;
-}
-/*Hinnan paikka*/
-.ateriat b{
-    margin-left:5px;
+    margin:0 15px 0 0;
 }
 /*Paragraafeijen koko ja paikka*/
 .piilo p{
@@ -180,7 +191,7 @@ button{
 }
 
 /*Yleinen class jolla piilotetaan halutut elementit*/
-.piilo, .desk{
+.piilo, .desk, .eiNay{
     display:none;
 }
 
@@ -203,7 +214,7 @@ button{
     }
     
     #ostoskori, #lomake{
-         margin-top:75px;
+        margin-top:75px;
     }
     
     .check{
@@ -266,13 +277,13 @@ button{
         display:block;
     }
     
-    #content{
-        min-height:750px;
-    }
-    
     #header span{
         margin:0 150px;
         margin-bottom:10px;
+    }
+    
+    #pallero{
+        margin-right:130px;
     }
     
     #header h1{
@@ -291,11 +302,11 @@ button{
     }
     /*Kaikkien sivujen paikka headeriin katsottuna*/
     #etusivu{
-        margin-top:123px;
+        margin-top:143px;
     }
     
     #ostoskori, #lomake{
-        margin-top:75px;
+        margin-top:100px;
     }
     
     /*HAKU*/
@@ -316,7 +327,9 @@ button{
     
     #ruokalista h1{
         font-size:2vw;
+        margin:0;
         border:none;
+        float:left;
     }
     
     #ruokalista .ateriat{
@@ -328,12 +341,12 @@ button{
     }
     
     .ateriat p{
-        font-size:18px
+        margin:0;
+        font-size:16px;
     }
     
     .glyphicon-plus-sign{
         font-size:2vw;
-        margin:0 0 0 20vw;
     }
     
     .glyphicon-plus-sign:hover{
@@ -356,5 +369,11 @@ button{
     /*LOMAKE*/
     #lomake{
         padding-top:30px;
+    }
+}
+
+@media only screen and (min-width:1205px){
+    .ateriat p{
+        font-size:18px;
     }
 }
