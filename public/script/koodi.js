@@ -50,27 +50,27 @@ $(document).ready(function(){
             
             if(valio=="l" && result.ruokalista[i].ruokavalio == "Laktoositon"||valio=="l" && result.ruokalista[i].ruokavalio[0] == "Laktoositon"||valio=="l" && result.ruokalista[i].ruokavalio[1] == "Laktoositon"){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
-                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<h1 class='eiNay'>" + result.ruokalista[i].nimi + "<h1></div></div>";
                 }
             
             else if(valio=="g" && result.ruokalista[i].ruokavalio[1]== "Gluteeniton"||valio=="g" && result.ruokalista[i].ruokavalio[0]== "Gluteeniton"||valio=="g" && result.ruokalista[i].ruokavalio== "Gluteeniton"){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
-                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<h1 class='eiNay'>" + result.ruokalista[i].nimi + "<h1></div></div>";
                 }
             
             else if(valio=="vl" && result.ruokalista[i].ruokavalio== "Vähälaktoosinen"||valio=="vl" && result.ruokalista[i].ruokavalio[0]== "Vähälaktoosinen"||valio=="vl" && result.ruokalista[i].ruokavalio[1]== "Vähälaktoosinen"){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
-                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<h1 class='eiNay'>" + result.ruokalista[i].nimi + "<h1></div></div>";
                 }
             
             else if(valio=="k" && result.ruokalista[i].ruokalaji== "kasvisruoka"){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
-                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<h1 class='eiNay'>" + result.ruokalista[i].nimi + "<h1></div></div>";
                 }
             
             else if(valio=="all"){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
-                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "<span class='glyphicon glyphicon-plus-sign oikea'></span></p></div></div>";
+                + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<h1 class='eiNay'>" + result.ruokalista[i].nimi + "<h1></div></div>";
             }
         
         $("#ruokalista").html(ateriat);
