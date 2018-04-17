@@ -37,11 +37,11 @@ button{
 #header a{
     color:#000;
 }
-
+/*Glyphiconeitten väri*/
 #header span{
     color:#EAB100;
 }
-
+/*Ostos pallon sijainti, koko ja väri*/
 #pallero{
     width:20px;
     height:20px;
@@ -62,10 +62,11 @@ button{
     margin:0;
     padding:0;
     text-align:center;
+    /*Muotoilaan niin että 7 laatikkoa on saman kokoista 100% levyisessä elementissä*/
     width:14.28571428571429%;
     font-size:20px;
 }
-
+/*Ajetaab yli bootstrapin valmiin muotoilun luokille active ja disabled*/
 .nav-pills .active a{
     background-color:#327300 !important;
 }
@@ -144,7 +145,7 @@ button{
     margin-bottom:10px;
     text-align:center;
 }
-
+/*Checkbockseijen tyyli. Ajettu yli form-control input-sm:n vakio muotoilun*/
 .check{
     float:left;
     margin:0 !important;
@@ -185,9 +186,6 @@ button{
 
 #ostoskori, #lomake{
     margin-top:90px;
-}
-
-#ostoskori, #lomake{
     background-color:rgba(255,255,255,0.7);
 }
 
@@ -205,6 +203,17 @@ button{
     float:left;
 }
 
+@media only screen and (min-width:390px){
+    #etusivu{
+        margin-top:138px;
+    }
+
+    #ostoskori, #lomake{
+        margin-top:80px;
+    }
+}
+
+/*Puhelin vaakasuorassa*/
 @media only screen and (max-width:760px) and (orientation:landscape){
     img{
         height:50px;
