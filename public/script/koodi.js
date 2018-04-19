@@ -147,6 +147,10 @@ $(document).ready(function(){
         $("#etusivu").addClass("piilo");
         $("#paivat").addClass("piilo");
         $("#landing").addClass("piilo");
+        //Lasketaan tilauksen hinta lomake sivulle
+        var tulostus="Tilauksen hinta yhteensä: ";
+        var hinta=maH + tiH + keH + toH + peH + laH + suH;
+        $("#hintaL").html(tulostus + hinta.toFixed(2) + "€");
     });
     
     $("#pallero").html(ostokset);
@@ -291,10 +295,26 @@ $(document).ready(function(){
             $("#posti").val("");
             $("#myModal").modal("show");
             
+            var hinta=maH + tiH + keH + toH + peH + laH + suH;
+            var tilausArray=[];
+            var tilausOlio={
+                "nimi":nimi,
+                "sukunimi":snimi,
+                "osoite":osoite,
+                "postinumero":poNu,
+                "puhelin":puh,
+                "s-posti":email,
+                "ateriat":{"maanantai":maa, "tiistai":tis, "keskiviikko":kes, "torstai":tor, "perjantai":per, "lauantai":lau, "sunnuntai":sun},
+                "hinta":hinta.toFixed(2)
+            };
+            tilausArray.push(tilausOlio);;
+            
             $.ajax({
                 url:lista,
+                method:"POST",
+                data:tilausArray,
                 success:function(result){
-                    tyonnaListaan(result);
+                    console.log(result);
                 },
                 error:function(xhr){
                     alert("Virhe " + xhr.statusText);
@@ -305,33 +325,6 @@ $(document).ready(function(){
         }
         
     });
-    
-    function tyonnaListaan(result){
-        var hinta=maH + tiH + keH + toH + peH + laH + suH;
-        var tilausArray=[];
-        var tilausOlio={
-                "nimi":nimi,
-                "sukunimi":snimi,
-                "osoite":osoite,
-                "postinumero":poNu,
-                "puhelin":puh,
-                "s-posti":email,
-                "ateriat":{"maanantai":maa, "tiistai":tis, "keskiviikko":kes, "torstai":tor, "perjantai":per, "lauantai":lau, "sunnuntai":sun},
-                "hinta":hinta.toFixed(2)
-            };
-        tilausArray.push(tilausOlio);
-        var tilausJSON=JSON.stringify(tilausArray);
-        tilausArray.push(result.tilaukset[0]);
-        console.log(tilausOlio);
-        
-        /*for(i=0; i < result.tilaukset.length; i++){
-            tilausOlio.push(result.tilaukset[i]);
-        console.log(tilausJSON);
-        }*/
-        
-        
-        
-    }
     
    /* $("#tallenna").click(function(){
             $("#alku").val("");
