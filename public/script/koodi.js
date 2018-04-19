@@ -122,6 +122,7 @@ $(document).ready(function(){
     $("#etuS").click(function(){
         $("#etusivu").removeClass("piilo");
         $("#paivat").removeClass("piilo");
+        $("#header").removeClass("piilo");
         $("#landing").addClass("piilo");
     });
     
@@ -140,17 +141,32 @@ $(document).ready(function(){
         $("#paivat").removeClass("piilo");
         $("#landing").addClass("piilo");
     });
-    
+
     $("#tilaa").click(function(){
-        $("#lomake").removeClass("piilo");
-        $("#ostoskori").addClass("piilo");
-        $("#etusivu").addClass("piilo");
-        $("#paivat").addClass("piilo");
-        $("#landing").addClass("piilo");
-        //Lasketaan tilauksen hinta lomake sivulle
-        var tulostus="Tilauksen hinta yhteensä: ";
-        var hinta=maH + tiH + keH + toH + peH + laH + suH;
-        $("#hintaL").html(tulostus + hinta.toFixed(2) + "€");
+        //Tarkistetaan että tyhjät päivät ovat vahvistettu
+        
+        //Kaikki päivät tyhjiä ja vahvistettu
+        if($("#mA").text()=="Ei ateriaa tälle päivälle" && $("#mC").prop("checked") && $("#tI").text()=="Ei ateriaa tälle päivälle" && $("#tiC").prop("checked") && $("#kE").text()=="Ei ateriaa tälle päivälle" && $("#kC").prop("checked") && $("#tO").text()=="Ei ateriaa tälle päivälle" && $("#toC").prop("checked") && $("#pE").text()=="Ei ateriaa tälle päivälle" && $("#pC").prop("checked") && $("#lA").text()=="Ei ateriaa tälle päivälle" && $("#lC").prop("checked") && $("#sU").text()=="Ei ateriaa tälle päivälle" && $("#sC").prop("checked")){
+            $("#lisaaR").modal("show");
+        }
+        
+        //Yhdellä päivällä on ruoka
+        else if($(".check").prop("checked")){
+            $("#lomake").removeClass("piilo");
+            $("#ostoskori").addClass("piilo");
+            $("#etusivu").addClass("piilo");
+            $("#paivat").addClass("piilo");
+            $("#landing").addClass("piilo");
+            //Lasketaan tilauksen hinta lomake sivulle
+            var tulostus="Tilauksen hinta yhteensä: ";
+            var hinta=maH + tiH + keH + toH + peH + laH + suH;
+            $("#hintaL").html(tulostus + hinta.toFixed(2) + "€");
+        }
+        
+        else{
+            $("#ohje").modal("show");
+        }
+        
     });
     
     $("#pallero").html(ostokset);
@@ -243,6 +259,10 @@ $(document).ready(function(){
                 $("#s").addClass("disabled");
                 $("#s").removeClass("active");
             }
+            
+            if(p !=="ma" && p !=="ti" && p !=="ke" && p !=="to" && p !=="pe" && p !=="la" && p !=="su"){
+                $("#huom").modal("show");
+            }
         }
         $("#pallero").html(ostokset);        
         $("#hinta").html(tulostus + hinta.toFixed(2) + "€");   
@@ -271,7 +291,7 @@ $(document).ready(function(){
         
         for(var i=0; i < poNu.length;i++){
             if(poNu.length -1 < 4 || poNu.length -1 > 4){
-            alert("ei");
+                $("#posti").css("background-color","rgba(255,0,0,0.3)");
             }
             
             else{
@@ -286,13 +306,37 @@ $(document).ready(function(){
             }
             
             else{
-                alert("ei");
+                $("#puh").css("background-color","rgba(255,0,0,0.3)");
             }
         }
         
-        if(puhO == "ok" && poNuO == "ok"){
+        if(nimi==""){
+            $("#nimi").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
+        if(snimi==""){
+            $("#sNimi").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
+        if(osoite==""){
+            $("#osoite").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
+        if(poNu==""){
+            $("#posti").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
+        if(puh==""){
+            $("#puh").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
+        if(puhO == "ok" && poNuO == "ok" && snimi !== "" && nimi !== "" && osoite !== ""){
+            $("#nimi").val("");
+            $("#sNimi").val("");
+            $("#osoite").val("");
             $("#puh").val("");
             $("#posti").val("");
+            $("#email").val("");
             $("#myModal").modal("show");
             
             var hinta=maH + tiH + keH + toH + peH + laH + suH;
@@ -321,45 +365,15 @@ $(document).ready(function(){
                 }
             });
             
+            location.reload();
+            /*ostokset=0;
+            $("#pallero").html(ostokset); 
+            $("#lomake").addClass("piilo");
+            $("#landing").removeClass("piilo");
+            $("#hinta").html("Tilauksen hinta yhteensä: 0.00€");*/
             
         }
         
     });
-    
-   /* $("#tallenna").click(function(){
-            $("#alku").val("");
-            $("#loppu").val("");
-            $("#nimi").val("");
-            $("#puhelin").val("");
-            $("#sPosti").val("");
 
-            var varausArray=[];
-            var urli="http:../Ot5/ohjelma.php";
-
-            var varausOlio={
-                "nimi":nimi,
-                "puh":puh,
-                "s-posti":email,
-                "varauspäivä":p1,
-                "palautuspäivä":p2,
-                "automalli":luokka,
-                "hinta":hinta
-            };
-            varausArray.push(varausOlio);
-            var varausJSON=JSON.stringify(varausArray);
-            console.log(varausJSON);
-
-            $.ajax({
-                url:urli,
-                method:"POST",
-                data:varausJSON,
-                success:function(result){
-                    console.log(result);
-                },
-                error:function(xhr){
-                    alert("Virhe" + xhr.statusText);
-                }
-            });
-        });
-    */
 });

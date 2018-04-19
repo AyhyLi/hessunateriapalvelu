@@ -11,14 +11,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/tyylit.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <style>@import url('https://fonts.googleapis.com/css?family=Caveat:400,700');</style>
 </head>
 <body>
     <!--glyphicon glyphicon-info-sign glyphicon glyphicon-trash-->
     <div id="content">
-        <nav id="header" class="navbar navbar-fixed-top">
+        <nav id="header" class="navbar navbar-fixed-top piilo">
             <div class="row">
-                <a class="eIcon"><div class="col-md-1 col-sm-2 col-xs-2"><img src="../images/ha_logo.png" alt="logo" class="desk"><span class="glyphicon glyphicon-home mob"></span></div></a>
+                <a class="eIcon"><div class="col-md-1 col-sm-2 col-xs-2"><img src="../images/ha_logo_k.png" alt="logo" class="desk"><span class="glyphicon glyphicon-home mob"></span></div></a>
                 <div class="col-xs-3"></div>
                 <a class="eIcon"><div class="col-md-6 col-sm-4 col-xs-4"><h1 class="desk">Hessun Ateriapalvelut</h1><img src="../images/ha_logo.png" alt="logo" class="mob"></div></a>
                 <a id="oIcon"><div class="col-md-2 col-sm-3 col-xs-3"><div class="oikea" id="pallero"></div><span class="glyphicon glyphicon-shopping-cart oikea"></span></div></a>
@@ -37,10 +37,14 @@
             </div>
         </nav>
         
-        <div id="landing">
-            <h1>Hullou</h1>
-            <p>Täältä tilaat aterioita</p>
-            <button id="etuS">Tilaa nyt!</button>
+        <div id="landing" class="container">
+            <div class="jumbotron">
+                <img src="images/ha_logo_w.png" alt="logo">
+                <h1>Hessun Ateriapalvelu Oy</h1>
+                <p>Täältä saat tilattua nopeasti ja helposti aterioita vaikka koko viikolle</p>
+            </div>
+            
+            <button id="etuS" class="btn btn-default">Tilaa nyt!</button>  
         </div>
         
         <div id="etusivu" class="piilo">
@@ -52,7 +56,7 @@
                     <option value="vl">Vähälaktoosinen</option>
                     <option value="k">Kasvisruoka</option>
                 </select>
-                <button id="hae">Hae</button>
+                <button id="hae" class="btn btn-default">Hae</button>
             </div>
 
             <div id="ruokalista">
@@ -69,44 +73,44 @@
                 </tr>
                 <tr>
                     <td>MA</td>
-                    <td id="mA"><input class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
+                    <td id="mA"><input id="mC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="mH">0.00€</td>
                 </tr>
                 <tr>
                     <td>TI</td>
-                    <td id="tI"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="tI"><input id="tiC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="tiH">0.00€</td>
                 </tr>
                 <tr>
                     <td>KE</td>
-                    <td id="kE"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="kE"><input id="kC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="kH">0.00€</td>
                 </tr>
                 <tr>
                     <td>TO</td>
-                    <td id="tO"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="tO"><input id="toC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="toH">0.00€</td>
                 </tr>
                 <tr>
                     <td>PE</td>
-                    <td id="pE"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="pE"><input id="pC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="pH">0.00€</td>
                 </tr>
                 <tr>
                     <td>LA</td>
-                    <td id="lA"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="lA"><input id="lC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="lH">0.00€</td>
                 </tr>
                 <tr>
                     <td>SU</td>
-                    <td id="sU"><input class="form-control input-sm check" type="checkbox"> Ei ateriaa tälle päivälle</td>
+                    <td id="sU"><input id="sC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
                     <td id="sH">0.00€</td>
                 </tr>
             </table>
             
-            <h1 id="hinta">Tilauksen hinta yhteensä: 0,00€</h1>
-            <button id="tilaa">Tilaa</button>
-            <button class="eIcon oikea">Takaisin</button>
+            <h1 id="hinta">Tilauksen hinta yhteensä: 0.00€</h1>
+            <button id="tilaa" class="btn btn-default">Tilaa</button>
+            <button class="eIcon oikea btn btn-default">Takaisin</button>
         </div>
         
         <div id="lomake" class="piilo">
@@ -137,13 +141,64 @@
                 </div>
             </form>
             <h1 id="hintaL">Tilauksen hinta yhteensä: 0,00€</h1>
-            <button id="vahvista" type="button">Vahvista tilaus</button>
+            <button id="vahvista" class="btn btn-default" type="button">Vahvista tilaus</button>
         </div>
     </div>
+
+<!--MODAALEJA-->
+<div id="lisaaR" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">HUOMIO</h4>
+            </div>
+            <div class="modal-body">
+                <p>Tällä hetkellä tilauksessasi ei ole yhtään ateriaa. Voit siirtyä eteenpäin tilaukseen kun tilauksessa on vähintään yksi ateria.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div id="ohje" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">HUOMIO</h4>
+            </div>
+            <div class="modal-body">
+                <p>Vahvista tyhjät päivät klikkaamalla neliötä.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div id="huom" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">HUOMIO</h4>
+            </div>
+            <div class="modal-body">
+                <p>Paina ensin viikonpäivää ja sitten lisää haluttu ateria.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+            </div>
+        </div>
+    </div>
+</div>
     
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -152,7 +207,7 @@
                 <p>Kiitos tilauksesta!</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
             </div>
         </div>
     </div>
