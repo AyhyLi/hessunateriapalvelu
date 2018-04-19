@@ -76,6 +76,11 @@ button{
     color:rgba(0,0,0,0.2) !important;
 }
 
+#landing{
+    padding:10px;
+    background-color: aqua;
+}
+
 /*HAKU OSIO*/
 #haku{
     width:100%;
@@ -180,6 +185,10 @@ button{
 }
 
 /*Kaikkien sivujen paikka headeriin katsottuna*/
+#landing{
+    margin-top:148px;
+}
+
 #etusivu{
     margin-top:148px;
 }

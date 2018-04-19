@@ -23,7 +23,7 @@
                 <a id="oIcon"><div class="col-md-2 col-sm-3 col-xs-3"><div class="oikea" id="pallero"></div><span class="glyphicon glyphicon-shopping-cart oikea"></span></div></a>
             </div>
 
-            <div id="paivat">
+            <div id="paivat" class="piilo">
                 <ul class="nav nav-pills">
                     <li id="m" class="pa"><a id="ma">MA</a></li>
                     <li id="t" class="pa"><a id="ti">TI</a></li>
@@ -36,7 +36,13 @@
             </div>
         </nav>
         
-        <div id="etusivu">
+        <div id="landing">
+            <h1>Hullou</h1>
+            <p>Täältä tilaat aterioita</p>
+            <button id="etuS">Tilaa nyt!</button>
+        </div>
+        
+        <div id="etusivu" class="piilo">
             <div id="haku">
                 <select id="rValiot">
                     <option value="all">Kaikki</option>
@@ -126,7 +132,7 @@
                 </div>
                 <div class="form-group">
                     <label for="sahkoposti">Sähköposti</label>
-                    <input class="form-control" type="text">
+                    <input id="email" class="form-control" type="text">
                 </div>
             </form>
             <h1>Tilauksen hinta yhteensä: 0,00€</h1>

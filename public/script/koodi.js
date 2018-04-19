@@ -20,6 +20,20 @@ var peH=0;
 var laH=0;
 var suH=0;
 
+var nimi;
+var snimi;
+var puh;
+var poNu;
+var osoite;
+var email;
+var maa;
+var tis;
+var kes;
+var tor;
+var per;
+var lau;
+var sun;
+
 $(document).ready(function(){
     //Haetaan ateriat json tiedostosta
     $.ajax({url:lista,
@@ -104,12 +118,19 @@ $(document).ready(function(){
     });
 
     
-    //Sivujen vaihto    
+    //Sivujen vaihto
+    $("#etuS").click(function(){
+        $("#etusivu").removeClass("piilo");
+        $("#paivat").removeClass("piilo");
+        $("#landing").addClass("piilo");
+    });
+    
     $("#oIcon").click(function(){
         $("#ostoskori").removeClass("piilo");
         $("#etusivu").addClass("piilo");
         $("#lomake").addClass("piilo");
         $("#paivat").addClass("piilo");
+        $("#landing").addClass("piilo");
     });
     
     $(".eIcon").click(function(){
@@ -117,6 +138,7 @@ $(document).ready(function(){
         $("#ostoskori").addClass("piilo");
         $("#lomake").addClass("piilo");
         $("#paivat").removeClass("piilo");
+        $("#landing").addClass("piilo");
     });
     
     $("#tilaa").click(function(){
@@ -124,6 +146,7 @@ $(document).ready(function(){
         $("#ostoskori").addClass("piilo");
         $("#etusivu").addClass("piilo");
         $("#paivat").addClass("piilo");
+        $("#landing").addClass("piilo");
     });
     
     $("#pallero").html(ostokset);
@@ -223,8 +246,21 @@ $(document).ready(function(){
 
     //Lomakkeen tarkistus
     $("#vahvista").click(function(){
-        var puh=$("#puh").val();
-        var poNu=$("#posti").val();
+        puh=$("#puh").val();
+        poNu=$("#posti").val();
+        nimi=$("#nimi").val();
+        snimi=$("#sNimi").val();
+        osoite=$("#osoite").val();
+        email=$("#email").val();
+        
+        maa=$("#mA").text();
+        tis=$("#tI").text();
+        kes=$("#kE").text();
+        tor=$("#tO").text();
+        per=$("#pE").text();
+        lau=$("#lA").text();
+        sun=$("#sU").text();
+        hinta=$("#hinta").text();
         
         var poNuO="";
         var puhO="";
@@ -235,7 +271,6 @@ $(document).ready(function(){
             }
             
             else{
-                alert("kyll!");
                 poNuO="ok";
                 
             }
@@ -243,7 +278,6 @@ $(document).ready(function(){
   
         for(var i=0; i < puh.length;i++){
             if(puh.length -1 == 5 || puh.length -1 == 9){
-                alert("kyll!");
                 puhO="ok";
             }
             
@@ -256,8 +290,83 @@ $(document).ready(function(){
             $("#puh").val("");
             $("#posti").val("");
             $("#myModal").modal("show");
+            
+            $.ajax({
+                url:lista,
+                success:function(result){
+                    tyonnaListaan(result);
+                },
+                error:function(xhr){
+                    alert("Virhe " + xhr.statusText);
+                }
+            });
+            
+            
         }
         
     });
     
+    function tyonnaListaan(result){
+        var hinta=maH + tiH + keH + toH + peH + laH + suH;
+        var tilausArray=[];
+        var tilausOlio={
+                "nimi":nimi,
+                "sukunimi":snimi,
+                "osoite":osoite,
+                "postinumero":poNu,
+                "puhelin":puh,
+                "s-posti":email,
+                "ateriat":{"maanantai":maa, "tiistai":tis, "keskiviikko":kes, "torstai":tor, "perjantai":per, "lauantai":lau, "sunnuntai":sun},
+                "hinta":hinta.toFixed(2)
+            };
+        tilausArray.push(tilausOlio);
+        var tilausJSON=JSON.stringify(tilausArray);
+        tilausArray.push(result.tilaukset[0]);
+        console.log(tilausOlio);
+        
+        /*for(i=0; i < result.tilaukset.length; i++){
+            tilausOlio.push(result.tilaukset[i]);
+        console.log(tilausJSON);
+        }*/
+        
+        
+        
+    }
+    
+   /* $("#tallenna").click(function(){
+            $("#alku").val("");
+            $("#loppu").val("");
+            $("#nimi").val("");
+            $("#puhelin").val("");
+            $("#sPosti").val("");
+
+            var varausArray=[];
+            var urli="http:../Ot5/ohjelma.php";
+
+            var varausOlio={
+                "nimi":nimi,
+                "puh":puh,
+                "s-posti":email,
+                "varauspäivä":p1,
+                "palautuspäivä":p2,
+                "automalli":luokka,
+                "hinta":hinta
+            };
+            varausArray.push(varausOlio);
+            var varausJSON=JSON.stringify(varausArray);
+            console.log(varausJSON);
+
+            $.ajax({
+                url:urli,
+                method:"POST",
+                data:varausJSON,
+                success:function(result){
+                    console.log(result);
+                },
+                error:function(xhr){
+                    alert("Virhe" + xhr.statusText);
+                }
+            });
+        });
+    */
 });
