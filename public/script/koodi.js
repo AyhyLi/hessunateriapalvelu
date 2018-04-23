@@ -1,5 +1,6 @@
 var lista=/api/;
 var ateriat="";
+var ateria=[];
 var valio;
 var i;
 var p;
@@ -19,12 +20,15 @@ var toH=0;
 var peH=0;
 var laH=0;
 var suH=0;
+var poisto;
+var miinus=0;
 
 var nimi;
 var snimi;
 var puh;
 var poNu;
 var osoite;
+var paikka;
 var email;
 var maa;
 var tis;
@@ -48,6 +52,7 @@ $(document).ready(function(){
         for(i=0; i < result.ruokalista.length; i++){
                 ateriat += "<div class='ateriat'><span class='glyphicon glyphicon-plus-sign vasen mob'></span><p class='eiNay'>" + result.ruokalista[i].id + "</p><h1 class='ateria mob'>" + result.ruokalista[i].nimi + "</h1><div class='tiedot piilo'><p>" + result.ruokalista[i].ainekset + " <b>" + result.ruokalista[i].hinta.toFixed(2) + "€</b></p></div><h1 class='desk'>" + result.ruokalista[i].nimi + "</h1><div class='desk'><p>"
                 + result.ruokalista[i].ainekset +  " <b>" + result.ruokalista[i].hinta.toFixed(2) +"€</b></p><p class='lyhenne'>" + result.ruokalista[i].lyhenne + "</p><span class='glyphicon glyphicon-plus-sign oikea'></span>" + "<p class='eiNay'>" + result.ruokalista[i].id + "</p></div></div>";
+            ateria.push(result.ruokalista[i]);
             }
         
         $("#ruokalista").html(ateriat);
@@ -264,8 +269,83 @@ $(document).ready(function(){
                 $("#huom").modal("show");
             }
         }
-        $("#pallero").html(ostokset);        
+        $("#pallero").html(ostokset - miinus);        
         $("#hinta").html(tulostus + hinta.toFixed(2) + "€");   
+    }
+    
+    //Ostoskorista poista
+    $("#ostoskori").on("click", ".glyphicon-remove-sign", function(result){
+        poisto=$(this).attr("id");
+        miinus++;
+        
+        $.ajax({url:lista,
+            success:function(result){
+                poistaOstoskorista(result);
+            }
+        });
+    });
+    
+    function poistaOstoskorista(result){
+        var tulostus="Tilauksen hinta yhteensä: ";        
+        
+        for(i=0; i < result.ruokalista.length; i++){
+            var hinta=maH + tiH + keH + toH + peH + laH + suH;
+
+            if(poisto=="maa"){
+                ma=0;
+                $("#mA").html("<input id='mC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#mH").html("0.00€");
+                maH=0;
+                $("#m").removeClass("disabled");
+                console.log(miinus);
+            }
+            else if(poisto=="tis"){
+                ti=0;
+                $("#tI").html("<input id='tiC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#tiH").html("0.00€");
+                tiH=0;
+                $("#t").removeClass("disabled");
+                console.log(miinus);
+            }
+            else if(poisto=="kes"){
+                ke=0;
+                $("#kE").html("<input id='kC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#kH").html("0.00€");
+                keH=0;
+                $("#k").removeClass("disabled");
+                console.log(miinus);
+            }
+            else if(poisto=="tor"){
+                to=0;
+                $("#tO").html("<input id='toC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#toH").html("0.00€");
+                toH=0;
+                $("#o").removeClass("disabled");
+            }
+            else if(poisto=="per"){
+                pe=0;
+                $("#pE").html("<input id='pC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#pH").html("0.00€");
+                peH=0;
+                $("#p").removeClass("disabled");
+            }
+            else if(poisto=="lau"){
+                la=0;
+                $("#lA").html("<input id='lC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#lH").html("0.00€");
+                laH=0;
+                $("#l").removeClass("disabled");
+            }
+            else if(poisto=="sun"){
+                su=0;
+                $("#sU").html("<input id='sC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#sH").html("0.00€");
+                suH=0;
+                $("#s").removeClass("disabled");
+            }
+        }
+        $("#pallero").html(ostokset - miinus);        
+        $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
     }
 
     //Lomakkeen tarkistus
@@ -275,6 +355,7 @@ $(document).ready(function(){
         nimi=$("#nimi").val();
         snimi=$("#sNimi").val();
         osoite=$("#osoite").val();
+        paikka=$("#paikka").val();
         email=$("#email").val();
         
         maa=$("#mA").text();
@@ -326,16 +407,21 @@ $(document).ready(function(){
             $("#posti").css("background-color","rgba(255,0,0,0.3)");
         }
         
+        if(paikka==""){
+            $("#paikka").css("background-color","rgba(255,0,0,0.3)");
+        }
+        
         if(puh==""){
             $("#puh").css("background-color","rgba(255,0,0,0.3)");
         }
         
-        if(puhO == "ok" && poNuO == "ok" && snimi !== "" && nimi !== "" && osoite !== ""){
+        if(puhO == "ok" && poNuO == "ok" && snimi !== "" && nimi !== "" && osoite !== "" && paikka !== ""){
             $("#nimi").val("");
             $("#sNimi").val("");
             $("#osoite").val("");
             $("#puh").val("");
             $("#posti").val("");
+            $("#paikka").val("");
             $("#email").val("");
             $("#myModal").modal("show");
             
@@ -346,17 +432,22 @@ $(document).ready(function(){
                 "sukunimi":snimi,
                 "osoite":osoite,
                 "postinumero":poNu,
+                "paikkakunta":paikka,
                 "puhelin":puh,
                 "s-posti":email,
                 "ateriat":{"maanantai":maa, "tiistai":tis, "keskiviikko":kes, "torstai":tor, "perjantai":per, "lauantai":lau, "sunnuntai":sun},
                 "hinta":hinta.toFixed(2)
             };
-            tilausArray.push(tilausOlio);;
             
+            tilausArray.push(tilausOlio);
+            var kaikki={tilaukset:tilausArray,
+                       ruokalista:ateria};
+            var data=JSON.stringify(kaikki);
+            console.log(data);
             $.ajax({
                 url:lista,
                 method:"POST",
-                data:tilausArray,
+                data:{"data":data},
                 success:function(result){
                     console.log(result);
                 },

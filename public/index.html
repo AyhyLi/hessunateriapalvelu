@@ -11,11 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/tyylit.css">
-    <style>@import url('https://fonts.googleapis.com/css?family=Caveat:400,700');</style>
+    <style>@import url('https://fonts.googleapis.com/css?family=Caveat:400,700|Quicksand');</style>
 </head>
 <body>
-    <!--glyphicon glyphicon-info-sign glyphicon glyphicon-trash-->
-    <div id="content">
+    <div id="content" class="container-fluid">
         <nav id="header" class="navbar navbar-fixed-top piilo">
             <div class="row">
                 <a class="eIcon"><div class="col-md-1 col-sm-2 col-xs-2"><img src="../images/ha_logo_k.png" alt="logo" class="desk"><span class="glyphicon glyphicon-home mob"></span></div></a>
@@ -37,7 +36,7 @@
             </div>
         </nav>
         
-        <div id="landing" class="container">
+        <div id="landing">
             <div class="jumbotron">
                 <img src="images/ha_logo_w.png" alt="logo">
                 <h1>Hessun Ateriapalvelu Oy</h1>
@@ -48,7 +47,7 @@
         </div>
         
         <div id="etusivu" class="piilo">
-            <div id="haku">
+            <div id="haku" class="container-fluid">
                 <select id="rValiot">
                     <option value="all">Kaikki</option>
                     <option value="l">Laktoositon</option>
@@ -70,41 +69,49 @@
                     <th>Päivä</th>
                     <th>Ateria</th>
                     <th>Hinta</th>
+                    <th></th>
                 </tr>
                 <tr>
                     <td>MA</td>
                     <td id="mA"><input id="mC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="mH">0.00€</td>
+                    <td id="mH" class="oikeaA">0.00€</td>
+                    <td><span id="maa" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>TI</td>
                     <td id="tI"><input id="tiC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="tiH">0.00€</td>
+                    <td id="tiH" class="oikeaA">0.00€</td>
+                    <td><span id="tis" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>KE</td>
                     <td id="kE"><input id="kC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="kH">0.00€</td>
+                    <td id="kH" class="oikeaA">0.00€</td>
+                    <td><span id="kes" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>TO</td>
                     <td id="tO"><input id="toC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="toH">0.00€</td>
+                    <td id="toH" class="oikeaA">0.00€</td>
+                    <td><span id="tor" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>PE</td>
                     <td id="pE"><input id="pC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="pH">0.00€</td>
+                    <td id="pH" class="oikeaA">0.00€</td>
+                    <td><span id="per" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>LA</td>
                     <td id="lA"><input id="lC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="lH">0.00€</td>
+                    <td id="lH" class="oikeaA">0.00€</td>
+                    <td><span id="lau" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
                 <tr>
                     <td>SU</td>
                     <td id="sU"><input id="sC" class="form-control input-sm check" type="checkbox">Ei ateriaa tälle päivälle</td>
-                    <td id="sH">0.00€</td>
+                    <td id="sH" class="oikeaA">0.00€</td>
+                    <td><span id="sun" class="glyphicon glyphicon-remove-sign"></span></td>
                 </tr>
             </table>
             
@@ -113,7 +120,7 @@
             <button class="eIcon oikea btn btn-default">Takaisin</button>
         </div>
         
-        <div id="lomake" class="piilo">
+        <div id="lomake" class="piilo container-fluid">
             <form class="needs-validation" novalidate>
                 <div class="form-group">
                     <label for="nimi">Nimi</label>
@@ -132,6 +139,10 @@
                     <input id="posti" class="form-control" type="number">
                 </div>
                 <div class="form-group">
+                    <label for="postinumero">Paikkakkunta</label>
+                    <input id="paikka" class="form-control" type="text">
+                </div>
+                <div class="form-group">
                     <label for="puhelinnumero">Puhelinnumero</label>
                     <input id="puh" class="form-control" type="number">
                 </div>
@@ -146,72 +157,72 @@
     </div>
 
 <!--MODAALEJA-->
-<div id="lisaaR" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">HUOMIO</h4>
-            </div>
-            <div class="modal-body">
-                <p>Tällä hetkellä tilauksessasi ei ole yhtään ateriaa. Voit siirtyä eteenpäin tilaukseen kun tilauksessa on vähintään yksi ateria.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+    <div id="lisaaR" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">HUOMIO</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Tällä hetkellä tilauksessasi ei ole yhtään ateriaa. Voit siirtyä eteenpäin tilaukseen kun tilauksessa on vähintään yksi ateria.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
     
-<div id="ohje" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">HUOMIO</h4>
-            </div>
-            <div class="modal-body">
-                <p>Vahvista tyhjät päivät klikkaamalla neliötä.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
-            </div>
-        </div>
-    </div>
-</div>
-    
-<div id="huom" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-warning">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">HUOMIO</h4>
-            </div>
-            <div class="modal-body">
-                <p>Paina ensin viikonpäivää ja sitten lisää haluttu ateria.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+    <div id="ohje" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">HUOMIO</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Vahvista tyhjät päivät klikkaamalla neliötä.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Kiitos tilauksesta!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+
+    <div id="huom" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">HUOMIO</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Paina ensin viikonpäivää ja sitten lisää haluttu ateria.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Kiitos tilauksesta!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     
     <script src="script/koodi.js"></script>

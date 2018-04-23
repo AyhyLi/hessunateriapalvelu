@@ -2,7 +2,7 @@ body{
     margin:auto;
     background-image:url("../images/ateria.jpg");
     background-size:cover;
-    font-family:'Century Gothic';
+    font-family:'Century Gothic', Quicksand, sans-serif;
 }
 
 h1{
@@ -23,10 +23,7 @@ button{
 }
 
 #content{
-    width:100%;
-    height:100%;
     box-sizing:border-box;
-
 }
 /*HEADER OSIO*/
 #header{
@@ -87,6 +84,7 @@ button{
     padding:10px;
     background-color:rgba(74,143,7,0.6);
     border-radius:5px;
+    margin-bottom:4.5vh;
 }
 
 #landing .jumbotron{
@@ -113,8 +111,8 @@ button{
 }
 
 #landing button{
-    font-size:5vw;
-    margin-left:35%;
+    font-size:7vw;
+    margin-left:30%;
     margin-bottom:15px;
 }
 
@@ -126,13 +124,15 @@ button{
 }
 /*Select valikon tekstin koko*/
 #haku select{
+    width:100%;
     font-size:7vw;
-    margin-right:2vw;
+    margin-right:10px;
 }
 
 #haku button{
-    font-size:5vw;
-    margin-top:-35px;
+    width:100%;
+    font-size:7vw;
+    margin-top:10px;
 }
 
 /*RUOKALISTA OSIO*/
@@ -172,14 +172,23 @@ button{
 }
 
 #ostoskori table{
-    font-size:4.5vw;
+    font-size:4vw;
     margin-bottom:10px;
+}
+
+.oikeaA{
+    text-align:right;
+}
+
+td{
+    font-size:3.2vw;
 }
 /*Ajetaan yli bootstrapin vakio muotoilun ja luodaan omat reunat*/
 .table, td, tr, th{
     border:none !important;
     border-bottom:1px solid #000 !important;
 }
+
 /*Muunetaan taulukon "otsikko" lohkot*/
 #ostoskori th{
     text-transform:uppercase;
@@ -194,6 +203,11 @@ button{
     margin-bottom:10px;
     text-align:center;
 }
+
+.glyphicon-remove-sign{
+    font-size:4vw;
+}
+
 /*Checkbockseijen tyyli. Ajettu yli form-control input-sm:n vakio muotoilun*/
 .check{
     float:left;
@@ -212,6 +226,7 @@ button{
 /*LOMAKE OSIO*/
 #lomake{
     padding:10px;
+    margin-bottom:40vh;
 }
 
 #lomake label, #lomake input{
@@ -229,7 +244,11 @@ button{
 }
 
 /*Kaikkien sivujen paikka headeriin katsottuna*/
-#etusivu, #landing{
+#landing{
+    margin-top:50px;   
+}
+
+#etusivu{
     margin-top:148px;
 }
 
@@ -286,7 +305,7 @@ button{
     }
     
     .check{
-        margin-top:5px !important;
+        margin-top:3px !important;
     }
     
     #ruokalista h1, .glyphicon-plus-sign, #haku select, #haku button{
@@ -294,16 +313,27 @@ button{
     }
 }
 
-/*TABLET näkymä*/
-@media only screen and (min-width:761px) and (max-width:960px){
+/*TABLET pystysuunta näkymä*/
+@media only screen and (min-width:761px) and (max-width:960px) and (orientation:portrait){
 
+    #landing{
+        margin-bottom:40vh;
+    }
+    
     /*HAKU*/
     #haku{
         padding:50px 160px;
         text-align:right;
+        border-bottom-left-radius:10px;
+        border-bottom-right-radius:10px;
+    }
+    
+    #haku select{
+        width:300px;
     }
     
     #haku button{
+        width:75px;
         margin-top:-15px;
         font-size:3vw;
     }
@@ -313,18 +343,28 @@ button{
         font-size:4vw;
     }
     
+    #ostoskori{
+        border-bottom-left-radius:10px;
+        border-bottom-right-radius:10px;
+    }
+    
     /*Sivujen leveys*/
     #ostoskori, #lomake, #ruokalista{
         width:80%;
         margin:auto;
     }
     /*Kaikkien sivujen paikka headeriin katsottuna*/
+    #landing{
+        margin-top:148px;
+    }
+    
     #etusivu{
         margin-top:135px;
     }
     
     #ostoskori, #lomake{
         margin-top:80px;
+        margin-bottom:30vh;
     }
     
     /*OSTOSKORI*/
@@ -343,8 +383,8 @@ button{
     
 }
 
-/*DESKTOP näkymä*/
-@media only screen and (min-width:961px){
+/*TABLET vaakasuunta näkymä*/
+@media only screen and (min-width:700px) and (orientation:landscape){
     /*Piilotetaan mob classin jossa on elementteijä jotka halutaan vain näyttää mobiilissä*/
     .mob{
         display:none;
@@ -353,6 +393,92 @@ button{
     .desk{
         display:block;
     }
+    
+    #landing{
+        margin-bottom:18vw;
+    }
+    
+    #landing button{
+        font-size:40px;
+        margin-left:40%;
+    }
+    
+    /*HAKU*/
+    #haku{
+        padding:50px 160px;
+        text-align:right;
+    }
+    
+    #haku button{
+        width:75px;
+        font-size:20px;
+        margin-top:-15px;
+    }
+    
+    #haku select{
+        width:300px;
+        font-size:30px;
+    }
+    
+    /*RUOKALISTA*/
+    #ruokalista{
+        min-height:100px;
+        overflow:auto;
+    }
+    
+    #ruokalista h1{
+        font-size:2.5vw;
+        margin:0;
+        border:none;
+        float:left;
+    }
+    
+    #ruokalista .ateriat{
+        width:33.33333333333333%;
+        height:205px;
+        float:left;
+        padding:10px;
+        border:1px outset #000;
+    }
+    
+    .ateriat p{
+        margin:0;
+        font-size:16px;
+    }
+    
+    .glyphicon-plus-sign{
+        font-size:2.5vw;
+    }
+    
+    .check{
+        margin-top:10px !important;
+    }
+    
+    /*LOMAKE*/
+    #lomake{
+        margin-bottom:0;
+    }
+    
+    #lomake button{
+        margin-left:40%;
+    }
+    
+    /*Kaikkien sivujen paikka headeriin katsottuna*/
+    #landing{
+        margin-top:148px;
+    }
+    
+    #etusivu{
+        margin-top:139px;
+    }
+    
+    #ostoskori, #lomake{
+        margin-top:80px;
+    }
+}
+
+/*DESKTOP näkymä*/
+@media only screen and (min-width:1050px){
     
     #header span, img{
         margin:0 150px;
@@ -363,13 +489,14 @@ button{
         margin-right:130px;
     }
     
-    #header h1{
-        margin-left:10%;
-    }
-    
     #paivat{
         width:80%;
         margin:auto;
+    }
+    
+    #landing{
+        margin:auto;
+        width:80%;
     }
     
     #landing h1{
@@ -381,12 +508,22 @@ button{
         margin-left:40%;
     }
     
+    /*OSTOSKORI*/
+    #ostoskori{
+        border-bottom-left-radius:10px;
+        border-bottom-right-radius:10px;
+    }
+    
     /*Kaikkien sivujen koko*/
     #ostoskori, #lomake, #ruokalista{
         width:80%;
         margin:auto;
     }
     /*Kaikkien sivujen paikka headeriin katsottuna*/
+    #landing{
+        margin-top:148px;
+    }
+    
     #etusivu{
         margin-top:143px;
     }
@@ -397,30 +534,13 @@ button{
     
     /*HAKU*/
     #haku{
-        padding:50px 160px;
-        text-align:right;
-    }
-    
-    #haku button{
-        font-size:20px;
-        margin-top:-15px;
-    }
-    
-    #haku select{
-        font-size:30px;
+        border-bottom-left-radius:10px;
+        border-bottom-right-radius:10px;
     }
     
     /*RUOKALISTA*/
-    #ruokalista{
-        min-height:100px;
-        overflow:auto;
-    }
-    
     #ruokalista h1{
         font-size:2vw;
-        margin:0;
-        border:none;
-        float:left;
     }
     
     #ruokalista b{
@@ -428,16 +548,10 @@ button{
     }
     
     #ruokalista .ateriat{
-        width:33.33333333333333%;
         height:190px;
-        float:left;
-        padding:10px;
-        border:1px outset #000;
     }
     
     .ateriat p{
-        margin:0;
-        font-size:16px;
         -webkit-text-stroke:0.3px black;
     }
     
@@ -445,7 +559,7 @@ button{
         font-size:2vw;
     }
     
-    .glyphicon-plus-sign:hover{
+    .glyphicon:hover{
         cursor:pointer;
     }
     
@@ -454,7 +568,7 @@ button{
     }
     
     /*OSTOSKORI*/
-    #ostoskori th, #ostoskori td{
+    #ostoskori th, #ostoskori td, .glyphicon-remove-sign{
         font-size:25px;
     }
     
@@ -471,5 +585,9 @@ button{
 @media only screen and (min-width:1205px){
     .ateriat p{
         font-size:18px;
+    }
+    
+    #header h1{
+        margin-left:10%;
     }
 }
