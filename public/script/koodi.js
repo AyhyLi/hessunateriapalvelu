@@ -456,7 +456,6 @@ $(document).ready(function(){
                 }
             });
             
-            location.reload();
             /*ostokset=0;
             $("#pallero").html(ostokset); 
             $("#lomake").addClass("piilo");
@@ -465,6 +464,10 @@ $(document).ready(function(){
             
         }
         
+    });
+    
+    $("#sulje").click(function(){
+        location.reload(); 
     });
 
 });
