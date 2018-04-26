@@ -1,6 +1,7 @@
 var lista=/api/;
 var ateriat="";
 var ateria=[];
+var tilausArray=[];
 var valio;
 var i;
 var p;
@@ -38,10 +39,11 @@ var lau;
 var sun;
 
 $(document).ready(function(){
-    //Haetaan ateriat json tiedostosta
+    //Haetaan ateriat ja tilaukset json tiedostosta
     $.ajax({url:lista,
                 success:function(result){
                     tulostatuotteet(result);
+                    haeEdellisettilaukset(result);
                 }
             });
     
@@ -55,6 +57,12 @@ $(document).ready(function(){
             }
         
         $("#ruokalista").html(ateriat);
+    }
+    //Tungetaan edelliset tilaukset tilaus arrayhin
+    function  haeEdellisettilaukset(result){
+        for(i=0; i < result.tilaukset.length; i++){
+                tilausArray.push(result.tilaukset[i]);
+            }
     }
     
     //Ruokavalio suodatin nappi joka ottaa valinnan valuen ja hakee ateriat
@@ -107,7 +115,6 @@ $(document).ready(function(){
     $(".nav-pills").on("click","a", function(e){
             e.preventDefault();
             p=$(this).attr("id");
-        console.log(p);
     });
     
         //Vaihdetaan activity classia
@@ -189,7 +196,6 @@ $(document).ready(function(){
     //Ostoslistaan lisääminen
     $("#ruokalista").on("click", ".glyphicon-plus-sign", function(result){
         id=$(this).next("p").text()
-        
         $.ajax({url:lista,
             success:function(result){
                 lisaaOstoskoriin(result);
@@ -284,88 +290,11 @@ $(document).ready(function(){
     }
     
     //Ostoskorista poista
-    $("#ostoskori").on("click", ".glyphicon-remove-sign", function(result){
+    $("#ostoskori").on("click", ".glyphicon-remove-sign", function(){
         poisto=$(this).attr("id");
-        
-        $.ajax({url:lista,
-            success:function(result){
-                poistaOstoskorista(result);
-            }
-        });
-    });
-    
-function poistaOstoskorista(result){
         var tulostus="Tilauksen hinta yhteensä: ";
         
-       /* */
-        
-        /*if(poisto=="maa" && ma==1){
-                ma=0;
-                $("#mA").html("<input id='mC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#mH").html("0.00€");
-                maH=0;
-                $("#m").removeClass("disabled");
-                miinus++; 
-            }
-        else if(poisto=="tis" && ti==1){
-                ti=0;
-                $("#tI").html("<input id='tiC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#tiH").html("0.00€");
-                tiH=0;
-                $("#t").removeClass("disabled");
-                miinus++;
-            }
-            else if(poisto=="kes" && ke==1){
-                ke=0;
-                $("#kE").html("<input id='kC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#kH").html("0.00€");
-                keH=0;
-                $("#k").removeClass("disabled");
-                miinus++;
-                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
-            }
-            else if(poisto=="tor" && to==1){
-                to=0;
-                $("#tO").html("<input id='toC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#toH").html("0.00€");
-                toH=0;
-                $("#o").removeClass("disabled");
-                miinus++;
-                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
-            }
-            else if(poisto=="per" && pe==1){
-                pe=0;
-                $("#pE").html("<input id='pC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#pH").html("0.00€");
-                peH=0;
-                $("#p").removeClass("disabled");
-                miinus++;
-                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
-            }
-            else if(poisto=="lau" && la==1){
-                la=0;
-                $("#lA").html("<input id='lC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#lH").html("0.00€");
-                laH=0;
-                $("#l").removeClass("disabled");
-                miinus++;
-                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
-            }
-            else if(poisto=="sun" && su==1){
-                su=0;
-                $("#sU").html("<input id='sC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
-                $("#sH").html("0.00€");
-                suH=0;
-                $("#s").removeClass("disabled");
-                miinus++;
-                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
-            }
-        
-            else{
-                $("#hinta").html(tulostus + "0.00€");
-            }*/
-        
-        for(i=0; i < result.ruokalista.length; i++){
+        for(i=0; i < 7; i++){
             var hinta=maH + tiH + keH + toH + peH + laH + suH;
             
             if(poisto=="maa" && ma==1){
@@ -429,7 +358,7 @@ function poistaOstoskorista(result){
         
         $("#pallero").html(ostokset);
         $("#hinta").html(tulostus + hinta.toFixed(2) + "€");
-    }
+    });
 
     //Lomakkeen tarkistus
     $("#vahvista").click(function(){
@@ -509,7 +438,6 @@ function poistaOstoskorista(result){
             $("#myModal").modal("show");
             
             var hinta=maH + tiH + keH + toH + peH + laH + suH;
-            var tilausArray=[];
             var tilausOlio={
                 "nimi":nimi,
                 "sukunimi":snimi,
@@ -521,6 +449,7 @@ function poistaOstoskorista(result){
                 "ateriat":{"maanantai":maa, "tiistai":tis, "keskiviikko":kes, "torstai":tor, "perjantai":per, "lauantai":lau, "sunnuntai":sun},
                 "hinta":hinta.toFixed(2)
             };
+            
             
             tilausArray.push(tilausOlio);
             var kaikki={tilaukset:tilausArray,
@@ -543,10 +472,7 @@ function poistaOstoskorista(result){
             $("#pallero").html(ostokset); 
             $("#lomake").addClass("piilo");
             $("#landing").removeClass("piilo");
-            $("#hinta").html("Tilauksen hinta yhteensä: 0.00€");
-            
-            voi poistaa enemmän kun kun aterioita on ja jos kaikkilla päivillä on ruoka ei voi tilata ja ei haeta edellistä tilausta.
-            Ekaks osto korissa oli erikseen conter miinustuteille ruuille mutta nyt ostokset --*/
+            $("#hinta").html("Tilauksen hinta yhteensä: 0.00€");*/
             
         }
         
