@@ -21,7 +21,6 @@ var peH=0;
 var laH=0;
 var suH=0;
 var poisto;
-var miinus=0;
 
 var nimi;
 var snimi;
@@ -151,7 +150,7 @@ $(document).ready(function(){
         //Tarkistetaan että tyhjät päivät ovat vahvistettu
         
         //Kaikki päivät tyhjiä ja vahvistettu
-        if($("#mA").text()=="Ei ateriaa tälle päivälle" && $("#mC").prop("checked") && $("#tI").text()=="Ei ateriaa tälle päivälle" && $("#tiC").prop("checked") && $("#kE").text()=="Ei ateriaa tälle päivälle" && $("#kC").prop("checked") && $("#tO").text()=="Ei ateriaa tälle päivälle" && $("#toC").prop("checked") && $("#pE").text()=="Ei ateriaa tälle päivälle" && $("#pC").prop("checked") && $("#lA").text()=="Ei ateriaa tälle päivälle" && $("#lC").prop("checked") && $("#sU").text()=="Ei ateriaa tälle päivälle" && $("#sC").prop("checked")){
+        if($("#mA").text()=="Ei ateriaa tälle päivälle" && $("#mC").prop("checked") && $("#tI").text()=="Ei ateriaa tälle päivälle" && $("#tiC").prop("checked") && $("#kE").text()=="Ei ateriaa tälle päivälle" && $("#kC").prop("checked") && $("#tO").text()=="Ei ateriaa tälle päivälle" && $("#toC").prop("checked") && $("#pE").text()=="Ei ateriaa tälle päivälle" && $("#pC").prop("checked") && $("#lA").text()=="Ei ateriaa tälle päivälle" && $("#lC").prop("checked") && $("#sU").text()=="Ei ateriaa tälle päivälle" && $(".check").prop("checked")){
             $("#lisaaR").modal("show");
         }
         
@@ -163,6 +162,17 @@ $(document).ready(function(){
             $("#paivat").addClass("piilo");
             $("#landing").addClass("piilo");
             //Lasketaan tilauksen hinta lomake sivulle
+            var tulostus="Tilauksen hinta yhteensä: ";
+            var hinta=maH + tiH + keH + toH + peH + laH + suH;
+            $("#hintaL").html(tulostus + hinta.toFixed(2) + "€");
+        }
+        
+        else if($("#mA").text() !=="Ei ateriaa tälle päivälle" && $("#tI").text() !=="Ei ateriaa tälle päivälle" && $("#kE").text() !=="Ei ateriaa tälle päivälle" && $("#tO").text() !=="Ei ateriaa tälle päivälle" && $("#pE").text() !=="Ei ateriaa tälle päivälle" && $("#lA").text() !=="Ei ateriaa tälle päivälle" && $("#sU").text() !=="Ei ateriaa tälle päivälle"){
+            $("#lomake").removeClass("piilo");
+            $("#ostoskori").addClass("piilo");
+            $("#etusivu").addClass("piilo");
+            $("#paivat").addClass("piilo");
+            $("#landing").addClass("piilo");
             var tulostus="Tilauksen hinta yhteensä: ";
             var hinta=maH + tiH + keH + toH + peH + laH + suH;
             $("#hintaL").html(tulostus + hinta.toFixed(2) + "€");
@@ -269,14 +279,13 @@ $(document).ready(function(){
                 $("#huom").modal("show");
             }
         }
-        $("#pallero").html(ostokset - miinus);        
+        $("#pallero").html(ostokset);        
         $("#hinta").html(tulostus + hinta.toFixed(2) + "€");   
     }
     
     //Ostoskorista poista
     $("#ostoskori").on("click", ".glyphicon-remove-sign", function(result){
         poisto=$(this).attr("id");
-        miinus++;
         
         $.ajax({url:lista,
             success:function(result){
@@ -285,67 +294,141 @@ $(document).ready(function(){
         });
     });
     
-    function poistaOstoskorista(result){
-        var tulostus="Tilauksen hinta yhteensä: ";        
+function poistaOstoskorista(result){
+        var tulostus="Tilauksen hinta yhteensä: ";
         
-        for(i=0; i < result.ruokalista.length; i++){
-            var hinta=maH + tiH + keH + toH + peH + laH + suH;
-
-            if(poisto=="maa"){
+       /* */
+        
+        /*if(poisto=="maa" && ma==1){
                 ma=0;
                 $("#mA").html("<input id='mC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#mH").html("0.00€");
                 maH=0;
                 $("#m").removeClass("disabled");
-                console.log(miinus);
+                miinus++; 
             }
-            else if(poisto=="tis"){
+        else if(poisto=="tis" && ti==1){
                 ti=0;
                 $("#tI").html("<input id='tiC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#tiH").html("0.00€");
                 tiH=0;
                 $("#t").removeClass("disabled");
-                console.log(miinus);
+                miinus++;
             }
-            else if(poisto=="kes"){
+            else if(poisto=="kes" && ke==1){
                 ke=0;
                 $("#kE").html("<input id='kC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#kH").html("0.00€");
                 keH=0;
                 $("#k").removeClass("disabled");
-                console.log(miinus);
+                miinus++;
+                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
             }
-            else if(poisto=="tor"){
+            else if(poisto=="tor" && to==1){
                 to=0;
                 $("#tO").html("<input id='toC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#toH").html("0.00€");
                 toH=0;
                 $("#o").removeClass("disabled");
+                miinus++;
+                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
             }
-            else if(poisto=="per"){
+            else if(poisto=="per" && pe==1){
                 pe=0;
                 $("#pE").html("<input id='pC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#pH").html("0.00€");
                 peH=0;
                 $("#p").removeClass("disabled");
+                miinus++;
+                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
             }
-            else if(poisto=="lau"){
+            else if(poisto=="lau" && la==1){
                 la=0;
                 $("#lA").html("<input id='lC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#lH").html("0.00€");
                 laH=0;
                 $("#l").removeClass("disabled");
+                miinus++;
+                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
             }
-            else if(poisto=="sun"){
+            else if(poisto=="sun" && su==1){
                 su=0;
                 $("#sU").html("<input id='sC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
                 $("#sH").html("0.00€");
                 suH=0;
                 $("#s").removeClass("disabled");
+                miinus++;
+                $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
+            }
+        
+            else{
+                $("#hinta").html(tulostus + "0.00€");
+            }*/
+        
+        for(i=0; i < result.ruokalista.length; i++){
+            var hinta=maH + tiH + keH + toH + peH + laH + suH;
+            
+            if(poisto=="maa" && ma==1){
+                ma=0;
+                $("#mA").html("<input id='mC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#mH").html("0.00€");
+                maH=0;
+                $("#m").removeClass("disabled");
+                ostokset--;
+            }
+            
+            else if(poisto=="tis" && ti==1){
+                ti=0;
+                $("#tI").html("<input id='tiC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#tiH").html("0.00€");
+                tiH=0;
+                $("#t").removeClass("disabled");
+                ostokset--;
+            }
+            else if(poisto=="kes" && ke==1){
+                ke=0;
+                $("#kE").html("<input id='kC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#kH").html("0.00€");
+                keH=0;
+                $("#k").removeClass("disabled");
+                ostokset--;
+            }
+            else if(poisto=="tor" && to==1){
+                to=0;
+                $("#tO").html("<input id='toC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#toH").html("0.00€");
+                toH=0;
+                $("#o").removeClass("disabled");
+                ostokset--;
+            }
+            else if(poisto=="per" && pe==1){
+                pe=0;
+                $("#pE").html("<input id='pC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#pH").html("0.00€");
+                peH=0;
+                $("#p").removeClass("disabled");
+                ostokset--;
+            }
+            else if(poisto=="lau" && la==1){
+                la=0;
+                $("#lA").html("<input id='lC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#lH").html("0.00€");
+                laH=0;
+                $("#l").removeClass("disabled");
+                ostokset--;
+            }
+            else if(poisto=="sun" && su==1){
+                su=0;
+                $("#sU").html("<input id='sC' class='form-control input-sm check' type='checkbox'>Ei ateriaa tälle päivälle");
+                $("#sH").html("0.00€");
+                suH=0;
+                $("#s").removeClass("disabled");
+                ostokset--;
             }
         }
-        $("#pallero").html(ostokset - miinus);        
-        $("#hinta").html(tulostus + hinta.toFixed(2) + "€"); 
+        
+        $("#pallero").html(ostokset);
+        $("#hinta").html(tulostus + hinta.toFixed(2) + "€");
     }
 
     //Lomakkeen tarkistus
@@ -460,7 +543,10 @@ $(document).ready(function(){
             $("#pallero").html(ostokset); 
             $("#lomake").addClass("piilo");
             $("#landing").removeClass("piilo");
-            $("#hinta").html("Tilauksen hinta yhteensä: 0.00€");*/
+            $("#hinta").html("Tilauksen hinta yhteensä: 0.00€");
+            
+            voi poistaa enemmän kun kun aterioita on ja jos kaikkilla päivillä on ruoka ei voi tilata ja ei haeta edellistä tilausta.
+            Ekaks osto korissa oli erikseen conter miinustuteille ruuille mutta nyt ostokset --*/
             
         }
         
